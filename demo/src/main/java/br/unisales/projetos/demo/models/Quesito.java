@@ -1,31 +1,22 @@
-package br.unisales.projetos.demo.controllers;
+package br.unisales.projetos.demo.models;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "quesitos") // Especifique o nome da coleção, se necessário
+@Document(collection = "quesitos")
 public class Quesito {
     @Id
-    private String id; // Certifique-se de que existe um campo para o identificador
+    private String id;
 
-    private String nome;
     private String descricao;
 
-    // Getters e setters
+    // Getters e Setters
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public String getDescricao() {

@@ -22,6 +22,7 @@ import CadastroCurso from '../views/cursos/CadastroCurso.vue';
 import EditarCurso from '../views/cursos/EditarCurso.vue';
 import ListaCursos from '../views/cursos/ListaCursos.vue';
 import AvaliacaoView from '@/views/AvaliacaoView.vue'
+import QuesitoView from '@/views/QuesitoView.vue'
 
 import LoginService from '../services/LoginService'
 import AuthService from '@/services/AuthService'
@@ -41,6 +42,11 @@ const routes = [
     path: '/projetos/:id',
     name: 'projetosedit',
     component: ProjetosEditView
+  },
+  {
+    path: '/quesito',
+    name: 'quesito',
+    component: QuesitoView
   },
   {
     path: '/usuarios',

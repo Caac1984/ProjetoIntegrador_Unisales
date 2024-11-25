@@ -15,6 +15,17 @@
             <router-link to="/" class="nav-link" active-class="active">Início</router-link>
           </li>
           <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProf" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Administrador
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownProf">
+              <li><router-link to="/usuarios" class="dropdown-item">Permissões Usuarios</router-link></li>
+              <li><router-link to="/projetos" class="dropdown-item">Permissões Usuarios</router-link></li>
+              <li><router-link to="/quesito" class="dropdown-item">Quesito</router-link></li>
+            </ul>
+            
+          </li>
+          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               cadastros
             </a>
@@ -46,6 +57,7 @@
               <li><router-link to="/avaliacao" class="dropdown-item">Avaliação</router-link></li>
             </ul>
           </li>
+          
           
         </ul>
         <div class="deslogar navbar-brand">
