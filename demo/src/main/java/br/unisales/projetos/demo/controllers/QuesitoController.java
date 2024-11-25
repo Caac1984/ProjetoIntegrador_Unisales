@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import br.unisales.projetos.demo.models.domain.Quesito;
 import br.unisales.projetos.demo.repositories.QuesitoRepository;
 
 import java.util.List;
@@ -19,21 +18,27 @@ public class QuesitoController {
 
     // Endpoint para listar todos os quesitos
     @GetMapping
-    public ResponseEntity<List<Quesito>> listarQuesitos() {
-        List<Quesito> quesitos = quesitoRepository.findAll();
+    public ResponseEntity<List<br.unisales.projetos.demo.repositories.Quesito>> listarQuesitos() {
+        List<br.unisales.projetos.demo.repositories.Quesito> quesitos = quesitoRepository.findAll();
         return ResponseEntity.ok(quesitos);
     }
 
     // Endpoint para salvar um novo quesito
+    /**
+     * @param <S>
+     * @param quesito
+     * @return
+     */
+    @SuppressWarnings("unchecked")
     @PostMapping
-    public ResponseEntity<Quesito> salvarQuesito(@RequestBody Quesito quesito) {
-        Quesito salvo = quesitoRepository.save(quesito);
+    public <S> ResponseEntity<Quesito> salvarQuesito(@RequestBody Quesito quesito) {
+        Quesito salvo = quesitoRepository.saveAll((Iterable<S>) quesito);
         return ResponseEntity.status(HttpStatus.CREATED).body(salvo);
     }
 
     // Endpoint para buscar um quesito por ID
     @GetMapping("/{id}")
-    public ResponseEntity<Quesito> buscarQuesitoPorId(@PathVariable String id) {
+    public ResponseEntity<br.unisales.projetos.demo.repositories.Quesito> buscarQuesitoPorId(@PathVariable String id) {
         return quesitoRepository.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
