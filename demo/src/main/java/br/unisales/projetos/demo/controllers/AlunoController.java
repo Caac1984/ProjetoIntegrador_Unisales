@@ -15,7 +15,6 @@ public class AlunoController {
     @Autowired
     private AlunoRepository alunoRepository;
 
-    // Endpoint para salvar um novo aluno
     @PostMapping
     public ResponseEntity<Aluno> salvarAluno(@RequestBody Aluno aluno) {
         Aluno alunoSalvo = alunoRepository.save(aluno);

@@ -103,14 +103,17 @@ export default {
   },
   methods: {
     async salvarAluno() {
-      try {
-        const response = await axios.post("http://localhost:8080/alunos", this.aluno);
-        if (response.status === 201) {
-          alert("Aluno cadastrado com sucesso!");
-          this.$router.push("/alunos");
-        }
-      } catch (error) {
-        console.error("Erro ao salvar aluno:", error);
+  console.log('Enviando dados do aluno:', this.aluno); // Verifique os dados antes de enviar
+
+  try {
+    const response = await axios.post("http://localhost:8080/alunos", this.aluno);
+    if (response.status === 201) {
+      alert("Aluno cadastrado com sucesso!");
+      this.$router.push("/alunos");
+    }
+  } catch (error) {
+    console.error("Erro ao salvar aluno:", error);
+    alert("Erro ao salvar aluno.");
       }
     },
   },

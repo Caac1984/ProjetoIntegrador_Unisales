@@ -1,30 +1,26 @@
 package br.unisales.projetos.demo.models;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "alunos")
+@Document("alunos")
 public class Aluno {
+
     @Id
-    private Long id; // Identificador único
+    private String id;
+    @Indexed(unique = true)
     private String nome;
+    private String matricula;
+    private String telefone;
     private String email;
-    
-    // Construtores, Getters e Setters
-    public Aluno() {
-    }
+    private String curso;
 
-    public Aluno(Long id, String nome, String email) {
-        this.id = id;
-        this.nome = nome;
-        this.email = email;
-    }
-
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -36,6 +32,22 @@ public class Aluno {
         this.nome = nome;
     }
 
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -43,4 +55,14 @@ public class Aluno {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getCurso() {
+        return curso;
+    }
+
+    public void setCurso(String curso) {
+        this.curso = curso;
+    }
+
+
 }
